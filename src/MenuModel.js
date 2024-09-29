@@ -14,7 +14,7 @@ const MenuModal = ({ isOpen, onClose }) => (
         className="fixed inset-y-0 left-0 w-1/5 bg-green-800 bg-opacity-95 flex items-center justify-center z-50 shadow-lg"
       >
         <div className="relative w-full h-full p-4 text-white">
-          <button onClick={onClose} className="absolute top-4 right-4">
+          <button onClick={onClose} className="absolute top-4 left-4">
             <X className="w-6 h-6" />
           </button>
           <div className="flex flex-col items-center h-full justify-center">

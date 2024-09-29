@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import MenuModal from "./MenuModel";
 import geeksforgeeksLogo from "./gfg.png";
+import AnimatedHamburgerMenu from "./AnimatedHamburgerMenu";
+import SimpleAnimatedMenu from "./SimpleAnimatedMenu";
 
 const GeeksAssemblePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,9 +56,10 @@ const GeeksAssemblePage = () => {
       className="bg-green-800 text-white min-h-screen flex flex-col absolute inset-0"
     >
       <header className="bg-green-900 p-4 flex justify-between items-center">
-        <button onClick={toggleMenu} className="focus:outline-none">
+        <SimpleAnimatedMenu onClick={toggleMenu} className="focus:outline-none">
           <MenuIcon />
-        </button>
+        </SimpleAnimatedMenu>
+
         <img src={geeksforgeeksLogo} alt="GFG Logo" className="w-8 h-8" />
       </header>
 
