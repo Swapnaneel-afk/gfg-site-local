@@ -1,49 +1,50 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-
-const MenuModal = ({ isOpen, onClose }) => (
-  <AnimatePresence>
-    {isOpen && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="fixed inset-0 bg-green-800 bg-opacity-95 flex items-center justify-center z-50"
-      >
-        <div className="relative w-full max-w-md p-8 text-white">
-          <button onClick={onClose} className="absolute top-4 left-4">
-            <X className="w-6 h-6" />
-          </button>
-          <div className="flex flex-col items-center">
-            <img src="/gfg.png" alt="GFG Logo" className="w-24 h-24 mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Student Chapter</h2>
-            <h3 className="text-xl mb-6">KIIT</h3>
-            <nav className="flex flex-col items-center space-y-2 mb-6">
-              <a href="#" className="text-lg hover:underline">
-                Home
-              </a>
-              <a href="#" className="text-lg hover:underline">
-                Core Lead
-              </a>
-              <a href="#" className="text-lg hover:underline">
-                Domain Leads
-              </a>
-              <a href="#" className="text-lg hover:underline">
-                Alumni Testimonials
-              </a>
-            </nav>
-            <div className="text-sm">Contact us/ Instagram / LinkedIn</div>
-          </div>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-);
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
+import MenuModal from "./MenuModel";
+import geeksforgeeksLogo from "./gfg.png";
 
 const GeeksAssemblePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const Path = (props) => (
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      {...props}
+    />
+  );
+
+  const MenuIcon = () => (
+    <svg width="23" height="23" viewBox="0 0 23 23">
+      <Path
+        variants={{
+          closed: { d: "M 2 2.5 L 20 2.5" },
+          open: { d: "M 3 16.5 L 17 2.5" },
+        }}
+        animate={isMenuOpen ? "open" : "closed"}
+      />
+      <Path
+        d="M 2 9.423 L 20 9.423"
+        variants={{
+          closed: { opacity: 1 },
+          open: { opacity: 0 },
+        }}
+        transition={{ duration: 0.1 }}
+        animate={isMenuOpen ? "open" : "closed"}
+      />
+      <Path
+        variants={{
+          closed: { d: "M 2 16.346 L 20 16.346" },
+          open: { d: "M 3 2.5 L 17 16.346" },
+        }}
+        animate={isMenuOpen ? "open" : "closed"}
+      />
+    </svg>
+  );
 
   return (
     <motion.div
@@ -53,10 +54,10 @@ const GeeksAssemblePage = () => {
       className="bg-green-800 text-white min-h-screen flex flex-col absolute inset-0"
     >
       <header className="bg-green-900 p-4 flex justify-between items-center">
-        <button onClick={() => setIsMenuOpen(true)}>
-          <Menu className="w-6 h-6" />
+        <button onClick={toggleMenu} className="focus:outline-none">
+          <MenuIcon />
         </button>
-        <img src="/gfg.png" alt="GFG Logo" className="w-8 h-8" />
+        <img src={geeksforgeeksLogo} alt="GFG Logo" className="w-8 h-8" />
       </header>
 
       <main className="flex-grow flex flex-col p-4 bg-green-800">
