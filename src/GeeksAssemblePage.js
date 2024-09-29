@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import geeksforgeeksLogo from "./gfg.png";
 
 const GeeksAssemblePage = () => {
   return (
@@ -9,6 +10,7 @@ const GeeksAssemblePage = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="bg-green-800 text-white min-h-screen flex flex-col items-center justify-start p-4 absolute inset-0"
     >
+      <GeeksForGeeksIcon />
       <h1 className="text-4xl font-bold mb-4">Geeks Assemble!</h1>
       <div className="bg-green-700 p-4 w-full max-w-2xl mb-4">
         <p className="italic text-sm">
@@ -25,5 +27,12 @@ const GeeksAssemblePage = () => {
     </motion.div>
   );
 };
+const GeeksForGeeksIcon = () => (
+  <img
+    src={geeksforgeeksLogo}
+    alt="GeeksForGeeks Logo"
+    className="w-24 h-24 mb-4"
+  />
+);
 
 export default GeeksAssemblePage;

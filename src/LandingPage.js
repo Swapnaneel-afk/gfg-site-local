@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import geeksforgeeksLogo from "./gfg.png";
 
 const LandingPage = ({ setCurrentPage }) => {
   return (
@@ -9,6 +10,7 @@ const LandingPage = ({ setCurrentPage }) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="bg-green-800 text-white min-h-screen flex flex-col items-center justify-center p-4 absolute inset-0"
     >
+      <GeeksForGeeksIcon />
       <h1 className="text-4xl font-bold mb-4 text-center">
         Hello from Geeks For Geeks
       </h1>
@@ -22,5 +24,12 @@ const LandingPage = ({ setCurrentPage }) => {
     </motion.div>
   );
 };
+const GeeksForGeeksIcon = () => (
+  <img
+    src={geeksforgeeksLogo}
+    alt="GeeksForGeeks Logo"
+    className="w-24 h-24 mb-4"
+  />
+);
 
 export default LandingPage;
