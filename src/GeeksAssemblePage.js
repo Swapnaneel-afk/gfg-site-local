@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 const GeeksAssemblePage = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-green-800 text-white min-h-screen flex flex-col items-center justify-start p-4"
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="bg-green-800 text-white min-h-screen flex flex-col items-center justify-start p-4 absolute inset-0"
     >
       <h1 className="text-4xl font-bold mb-4">Geeks Assemble!</h1>
       <div className="bg-green-700 p-4 w-full max-w-2xl mb-4">

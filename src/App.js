@@ -8,7 +8,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("landing");
 
   return (
-    <div className="App">
+    <div className="App overflow-hidden">
       <AnimatePresence mode="wait">
         {currentPage === "landing" ? (
           <LandingPage key="landing" setCurrentPage={setCurrentPage} />
